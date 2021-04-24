@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 
 const {
   SNOWPACK_PUBLIC_FIREBASE_API_KEY,
@@ -7,8 +7,8 @@ const {
   SNOWPACK_PUBLIC_FIREBASE_PROJECT_ID,
   SNOWPACK_PUBLIC_FIREBASE_STORAGE_BUCKET,
   SNOWPACK_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  SNOWPACK_PUBLIC_FIREBASE_APP_ID
-} = import.meta.env
+  SNOWPACK_PUBLIC_FIREBASE_APP_ID,
+} = import.meta.env;
 
 const firebaseeConfig = {
   apiKey: SNOWPACK_PUBLIC_FIREBASE_API_KEY,
@@ -17,10 +17,10 @@ const firebaseeConfig = {
   projectId: SNOWPACK_PUBLIC_FIREBASE_PROJECT_ID,
   storageBucket: SNOWPACK_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: SNOWPACK_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: SNOWPACK_PUBLIC_FIREBASE_APP_ID
+  appId: SNOWPACK_PUBLIC_FIREBASE_APP_ID,
 };
 
-console.log(firebaseeConfig)
+console.log(firebaseeConfig);
 
 try {
   firebase.initializeApp(firebaseeConfig);
