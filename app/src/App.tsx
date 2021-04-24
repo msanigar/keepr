@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import fire from './fire';
 import Login from './Login';
+import Notes from './components/Notes';
+
 import 'firebase/auth';
-import logo from './logo.svg';
 import './App.css';
 
 interface AppProps {}
@@ -14,39 +15,40 @@ function App({}: AppProps) {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
   });
 
+  const logOut = () => {
+    fire
+      .auth()
+      .signOut()
+      .then(() => {
+        setIsLoggedIn(false);
+      })
+      .catch((error) => {
+        console.group(error);
+      });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Router>
-          {!isLoggedIn ? (
-            <>
-              <Switch>
-                <Route path="/">
-                  <Login />
-                </Route>
-              </Switch>
-            </>
-          ) : (
-            <>
-              <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.tsx</code> and save to reload.
-              </p>
-              <p>You are logged in!</p>
-              <p>
-                <a
-                  className="App-link"
-                  href="https://reactjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn React
-                </a>
-              </p>
-            </>
-          )}
-        </Router>
-      </header>
+      {isLoggedIn && <button onClick={logOut}>Sign Out</button>}
+      <Router>
+        {!isLoggedIn ? (
+          <>
+            <Switch>
+              <Route path="/">
+                <Login />
+              </Route>
+            </Switch>
+          </>
+        ) : (
+          <>
+            <Switch>
+              <Route path="/">
+                <Notes />
+              </Route>
+            </Switch>
+          </>
+        )}
+      </Router>
     </div>
   );
 }
