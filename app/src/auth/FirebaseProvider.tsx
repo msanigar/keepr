@@ -1,4 +1,11 @@
 import firebase from 'firebase/app';
+import React, { createContext } from 'react';
+
+export interface IFirebaseContext {
+  firebase: firebase.app.App;
+}
+
+export const FirebaseContext = createContext({} as IFirebaseContext);
 
 const {
   SNOWPACK_PUBLIC_FIREBASE_API_KEY,
@@ -20,15 +27,23 @@ const firebaseeConfig = {
   appId: SNOWPACK_PUBLIC_FIREBASE_APP_ID,
 };
 
-console.log(firebaseeConfig);
-
-try {
-  firebase.initializeApp(firebaseeConfig);
-} catch (err) {
-  if (!/already exists/.test(err.message)) {
-    console.error('Firebase initialization error', err.stack);
+const initFirebase = () => {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseeConfig);
+    console.log('--- Firebase Initialized ---');
+    console.log(firebaseeConfig);
   }
-}
+};
 
-const fire = firebase;
-export default fire;
+export const FirebaseProvider = ({ children }: any) => {
+  initFirebase();
+  return (
+    <div>
+      <FirebaseContext.Provider
+        value={{ firebase: firebase.app() } as IFirebaseContext}
+      >
+        {children}
+      </FirebaseContext.Provider>
+    </div>
+  );
+};
