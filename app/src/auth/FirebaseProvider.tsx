@@ -30,8 +30,6 @@ const firebaseeConfig = {
 const initFirebase = () => {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseeConfig);
-    console.log('--- Firebase Initialized ---');
-    console.log(firebaseeConfig);
   }
 };
 

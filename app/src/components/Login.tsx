@@ -5,7 +5,7 @@ import { UserContext } from '../auth/UserContext';
 
 import 'firebase/auth';
 
-export const FirebaseAuth = () => {
+export const Login = () => {
   const { setUser } = useContext(UserContext);
 
   const firebaseAuthConfig = {
@@ -23,7 +23,6 @@ export const FirebaseAuth = () => {
     signInSuccessUrl: '/',
     callbacks: {
       signInSuccessWithAuthResult: ({ user }: any): boolean => {
-        console.log('success!');
         setUser(user);
         return false;
       },
