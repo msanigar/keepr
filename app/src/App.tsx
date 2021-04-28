@@ -5,7 +5,7 @@ import { Notes } from './components/Notes';
 import { AddNote } from './components/AddNote';
 import { Login } from './components/Login';
 
-const App = () => {
+const App: React.FC = () => {
   const { user, logout } = useContext(UserContext);
   const knownUser = user.email || user.displayName;
 
@@ -16,11 +16,11 @@ const App = () => {
           <>
             <button onClick={logout}>Sign out</button>
             <Switch>
-              <Route path="/">
-                <Notes />
-              </Route>
               <Route path="/add-note">
                 <AddNote />
+              </Route>
+              <Route path="/">
+                <Notes />
               </Route>
             </Switch>
           </>

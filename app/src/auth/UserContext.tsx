@@ -13,7 +13,7 @@ export interface IUserContext {
 
 export const UserContext = createContext({} as IUserContext);
 
-export const UserProvider = ({ children }: any) => {
+export const UserProvider: React.FC = ({ children }: any) => {
   const { firebase } = useContext(FirebaseContext);
   const [user, setUser] = useState({} as IUser);
   const [isLoading, setLoading] = useState(false);

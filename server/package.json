@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "tsc && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +16,9 @@
     "mongoose": "^5.12.5",
     "nodemon": "^2.0.7",
     "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "tslint": "^6.1.3"
   }
 }

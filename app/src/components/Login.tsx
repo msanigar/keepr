@@ -5,7 +5,7 @@ import { UserContext } from '../auth/UserContext';
 
 import 'firebase/auth';
 
-export const Login = () => {
+export const Login: React.FC = () => {
   const { setUser } = useContext(UserContext);
 
   const firebaseAuthConfig = {

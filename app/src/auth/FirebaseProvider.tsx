@@ -34,7 +34,7 @@ const initFirebase = () => {
   }
 };
 
-export const FirebaseProvider = ({ children }: any) => {
+export const FirebaseProvider: React.FC = ({ children }: any) => {
   initFirebase();
   return (
     <div>
