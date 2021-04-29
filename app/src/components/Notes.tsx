@@ -18,8 +18,8 @@ export const Notes = () => {
   return (
     <div>
       <Link to="/add-note">Add note</Link>
-      {notes!.map((note: INote) => (
-        <Note note={note} />
+      {notes!.map((note: INote, i) => (
+        <Note key={i} note={note} />
       ))}
     </div>
   );
