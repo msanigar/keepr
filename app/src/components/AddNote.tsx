@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export interface INote {
-  title: string | null;
-  content: string | null;
-}
+import { addToNotes } from '../services/noteServices';
+import type { INote } from '../../types/notes';
 
 export const AddNote: React.FC = () => {
   const [title, setTitle] = useState('' as INote['title']);
@@ -12,7 +10,9 @@ export const AddNote: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if (title && content) {
+      addToNotes(title, content);
+    }
     console.log(`submitted: ${title} - ${content}`);
   };
 

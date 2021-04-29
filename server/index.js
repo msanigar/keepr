@@ -1,15 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 require("dotenv").config();
 
 const notesRouter = require("./controllers/notes.ts");
-
 const app = express();
-
-app.use("/api", notesRouter);
-
 const PORT = 8081;
+
+app.use(cors());
+app.use("/api", notesRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
