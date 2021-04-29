@@ -12,6 +12,7 @@ const PORT = 8081;
 
 app.use(cors());
 app.use(decodeIDToken);
+app.use(express.json());
 app.use('/api', notesRouter);
 
 app.listen(PORT, () => {
