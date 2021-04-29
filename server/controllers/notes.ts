@@ -18,4 +18,13 @@ notesRouter.post('/', (req: any, res: any) => {
   return res.status(403).send('Not authorized');
 });
 
+notesRouter.get('/', async (req, res) => {
+  const auth = req.currentUser;
+  if (auth) {
+    const notes = await Note.find({ uid: auth.uid });
+    return res.json(notes.map((note) => note.toJSON()));
+  }
+  return res.status(403).send('Not authorized');
+});
+
 module.exports = notesRouter;

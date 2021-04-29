@@ -1,9 +1,15 @@
 import React from 'react';
+import type { INote } from '../../types/notes';
 
-export const Note: React.FC = () => {
+type IProps = {
+  note: INote;
+};
+
+export const Note: React.FC<IProps> = (props: IProps) => {
   return (
     <>
-      <p>Note</p>
+      <p>title: {props.note.title}</p>
+      <p>content: {props.note.content}</p>
     </>
   );
 };
