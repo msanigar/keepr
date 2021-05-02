@@ -4,7 +4,9 @@ import { Note } from '../components/Note';
 import { getNotes } from '../services/noteServices';
 import type { INote } from '../../types/notes';
 
-export const Notes = () => {
+interface Props {}
+
+export const Notes: React.FC<Props> = () => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -18,9 +20,11 @@ export const Notes = () => {
   return (
     <div>
       <Link to="/add-note">Add note</Link>
-      {notes!.map((note: INote, i) => (
-        <Note key={i} note={note} />
-      ))}
+      {notes ? (
+        notes!.map((note: INote, i) => <Note key={i} note={note} />)
+      ) : (
+        <p>You haven't added any notes yet!</p>
+      )}
     </div>
   );
 };

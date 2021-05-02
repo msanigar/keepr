@@ -5,7 +5,9 @@ import { Notes } from './components/Notes';
 import { AddNote } from './components/AddNote';
 import { Login } from './components/Login';
 
-const App: React.FC = () => {
+interface Props {}
+
+const App: React.FC<Props> = () => {
   const { user, logout } = useContext(UserContext);
   const knownUser = user.email || user.displayName;
 

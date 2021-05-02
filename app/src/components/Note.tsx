@@ -1,15 +1,16 @@
 import React from 'react';
 import type { INote } from '../../types/notes';
 
-type IProps = {
+interface Props {
   note: INote;
-};
+}
 
-export const Note: React.FC<IProps> = (props: IProps) => {
+export const Note: React.FC<Props> = ({ note }) => {
+  const { title, content } = note;
   return (
     <>
-      <p>title: {props.note.title}</p>
-      <p>content: {props.note.content}</p>
+      <p>title: {title}</p>
+      <p>content: {content}</p>
     </>
   );
 };

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { addToNotes } from '../services/noteServices';
 import type { INote } from '../../types/notes';
 
-export const AddNote: React.FC = () => {
-  const [title, setTitle] = useState('' as INote['title']);
-  const [content, setContent] = useState('' as INote['content']);
+interface Props {}
+
+export const AddNote: React.FC<Props> = () => {
+  const [title, setTitle] = useState<INote['title']>('');
+  const [content, setContent] = useState<INote['content']>('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

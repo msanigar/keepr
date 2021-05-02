@@ -1,21 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { FirebaseContext } from './FirebaseProvider';
-export interface IUser {
-  displayName: string | null;
-  email: string | null;
-}
-
-export interface IUserContext {
-  user: IUser;
-  setUser: (user: IUser) => void;
-  logout: () => Promise<void>;
+import type { IUserContext, IUser } from '../../types/user';
+export interface Props {
+  children: React.ReactChild;
 }
 
 export const UserContext = createContext({} as IUserContext);
 
-export const UserProvider: React.FC = ({ children }: any) => {
+export const UserProvider: React.FC<Props> = ({ children }: any) => {
   const { firebase } = useContext(FirebaseContext);
-  const [user, setUser] = useState({} as IUser);
+  const [user, setUser] = useState<IUser>({ displayName: null, email: null });
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {

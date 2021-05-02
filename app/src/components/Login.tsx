@@ -2,10 +2,13 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import React, { useContext } from 'react';
 import { UserContext } from '../auth/UserContext';
+import type { IUser } from '../../types/user';
 
 import 'firebase/auth';
 
-export const Login: React.FC = () => {
+interface Props {}
+
+export const Login: React.FC<Props> = () => {
   const { setUser } = useContext(UserContext);
 
   const firebaseAuthConfig = {
@@ -22,7 +25,7 @@ export const Login: React.FC = () => {
     ],
     signInSuccessUrl: '/',
     callbacks: {
-      signInSuccessWithAuthResult: ({ user }: any): boolean => {
+      signInSuccessWithAuthResult: (user: IUser): boolean => {
         setUser(user);
         return false;
       },

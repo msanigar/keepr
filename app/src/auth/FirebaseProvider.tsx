@@ -1,8 +1,12 @@
 import firebase from 'firebase/app';
-import React, { createContext } from 'react';
+import React, { createContext, ReactChild } from 'react';
 
 export interface IFirebaseContext {
   firebase: firebase.app.App;
+}
+
+export interface Props {
+  children: ReactChild;
 }
 
 export const FirebaseContext = createContext({} as IFirebaseContext);
@@ -34,7 +38,7 @@ const initFirebase = () => {
   }
 };
 
-export const FirebaseProvider: React.FC = ({ children }: any) => {
+export const FirebaseProvider: React.FC<Props> = ({ children }) => {
   initFirebase();
   return (
     <div>
