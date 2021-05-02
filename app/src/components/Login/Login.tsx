@@ -34,15 +34,35 @@ export const Login: React.FC<Props> = () => {
     },
   };
 
+  const heroStyles = {
+    backgroundColor: `#102542`,
+    backgroundImage: `url(${specsSvg})`,
+    backgroundRepeat: `no repeat`,
+    backgroundSize: `cover`,
+  };
+
+  const boxStyles = {
+    backgroundColor: `rgb(0,0,0,0.25)`,
+  };
+
   return (
     <div>
-      <img src={specsSvg} />
-      <div>
-        <StyledFirebaseAuth
-          uiConfig={firebaseAuthConfig}
-          firebaseAuth={firebase.auth()}
-        />
-      </div>
+      <section className="hero is-primary is-fullheight" style={heroStyles}>
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns is-centered">
+              <div className="column is-5-tablet is-4-desktop is-3-widescreen">
+                <div className="box" style={boxStyles}>
+                  <StyledFirebaseAuth
+                    uiConfig={firebaseAuthConfig}
+                    firebaseAuth={firebase.auth()}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

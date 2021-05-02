@@ -4,7 +4,6 @@ import { UserContext } from './auth/UserContext';
 import { Notes } from './components/Notes/Notes';
 import { AddNote } from './components/AddNote/AddNote';
 import { Login } from './components/Login/Login';
-import { Header } from './components/Header/Header';
 
 import './firebaseui-styling.global.css';
 
@@ -19,7 +18,6 @@ const App: React.FC<Props> = () => {
       <Router>
         {user && knownUser ? (
           <>
-            <Header />
             <Switch>
               <Route path="/add-note">
                 <AddNote />
