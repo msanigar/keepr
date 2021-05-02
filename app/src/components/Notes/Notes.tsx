@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Note } from '../components/Note';
-import { getNotes } from '../services/noteServices';
-import type { INote } from '../../types/notes';
+import { Note } from '../Note/Note';
+import { getNotes } from '../../services/noteServices';
+import type { INote } from '../../../types/notes';
 
 interface Props {}
 
@@ -19,7 +18,6 @@ export const Notes: React.FC<Props> = () => {
 
   return (
     <div>
-      <Link to="/add-note">Add note</Link>
       {notes ? (
         notes!.map((note: INote, i) => <Note key={i} note={note} />)
       ) : (

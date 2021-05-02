@@ -1,5 +1,5 @@
 import React from 'react';
-import type { INote } from '../../types/notes';
+import type { INote } from '../../../types/notes';
 
 interface Props {
   note: INote;

@@ -1,11 +1,10 @@
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import React, { useContext } from 'react';
-import { UserContext } from '../auth/UserContext';
-import type { IUser } from '../../types/user';
-import styles from '../styles/login.module.scss';
+import { UserContext } from '../../auth/UserContext';
+import type { IUser } from '../../../types/user';
 
-import specsSvg from '../img/undraw_Specs_djh3.svg';
+import specsSvg from '../../img/undraw_Specs_djh3.svg';
 
 import 'firebase/auth';
 
@@ -13,7 +12,6 @@ interface Props {}
 
 export const Login: React.FC<Props> = () => {
   const { setUser } = useContext(UserContext);
-  const { loginContainer, container } = styles;
 
   const firebaseAuthConfig = {
     signInFlow: 'popup',
@@ -37,8 +35,9 @@ export const Login: React.FC<Props> = () => {
   };
 
   return (
-    <div className={container} style={{ backgroundImage: `url(${specsSvg})` }}>
-      <div className={loginContainer}>
+    <div>
+      <img src={specsSvg} />
+      <div>
         <StyledFirebaseAuth
           uiConfig={firebaseAuthConfig}
           firebaseAuth={firebase.auth()}

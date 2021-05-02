@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { addToNotes } from '../services/noteServices';
-import type { INote } from '../../types/notes';
+import { addToNotes } from '../../services/noteServices';
+import type { INote } from '../../../types/notes';
 
 interface Props {}
 

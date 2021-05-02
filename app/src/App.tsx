@@ -1,28 +1,25 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContext } from './auth/UserContext';
-import { Notes } from './components/Notes';
-import { AddNote } from './components/AddNote';
-import { Login } from './components/Login';
+import { Notes } from './components/Notes/Notes';
+import { AddNote } from './components/AddNote/AddNote';
+import { Login } from './components/Login/Login';
+import { Header } from './components/Header/Header';
 
-import './reset.global.css';
 import './firebaseui-styling.global.css';
-
-import styles from './styles/app.module.scss';
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
-  const { user, logout } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const knownUser = user.email || user.displayName;
-  const { container } = styles;
 
   return (
-    <div className={container} data-test="keepr-container">
+    <div data-test="keepr-container">
       <Router>
         {user && knownUser ? (
           <>
-            <button onClick={logout}>Sign out</button>
+            <Header />
             <Switch>
               <Route path="/add-note">
                 <AddNote />
