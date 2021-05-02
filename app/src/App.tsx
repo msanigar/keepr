@@ -5,14 +5,20 @@ import { Notes } from './components/Notes';
 import { AddNote } from './components/AddNote';
 import { Login } from './components/Login';
 
+import './reset.global.css';
+import './firebaseui-styling.global.css';
+
+import styles from './styles/app.module.scss';
+
 interface Props {}
 
 const App: React.FC<Props> = () => {
   const { user, logout } = useContext(UserContext);
   const knownUser = user.email || user.displayName;
+  const { container } = styles;
 
   return (
-    <div className="App" data-test="keepr-container">
+    <div className={container} data-test="keepr-container">
       <Router>
         {user && knownUser ? (
           <>
