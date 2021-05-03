@@ -19,8 +19,6 @@ export const Notes: React.FC<Props> = () => {
 
   return (
     <section className="container">
-      <div className="notification is-primary">This is a notification!!</div>
-
       <div className="section">
         <Nav />
       </div>

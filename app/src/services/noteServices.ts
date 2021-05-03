@@ -20,6 +20,7 @@ export const getNotes = async () => {
   const header = await createToken();
   try {
     const res = await axios.get(url, header);
+    console.log(res.data);
     return res.data;
   } catch (e) {
     console.error(e);
@@ -35,6 +36,22 @@ export const addToNotes = async (
 
   try {
     const res = await axios.post(url, payload, header);
+    return res.data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const editNote = async (
+  title: INote['title'],
+  content: INote['content'],
+  id: INote['id'],
+) => {
+  const header = await createToken();
+  const payload = { title, content, id };
+
+  try {
+    const res = await axios.post(`${url}/edit`, payload, header);
     return res.data;
   } catch (e) {
     console.error(e);
