@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import type { INote } from '../../../types/notes';
-import { editNote } from '../../services/noteServices';
+import { editNote, deleteNote } from '../../services/noteServices';
 
 interface Props {
   note: INote;
+  fetchNotes: () => void;
 }
 
-export const Note: React.FC<Props> = ({ note }) => {
+export const Note: React.FC<Props> = ({ note, fetchNotes }) => {
   const { title, content, id } = note;
   const [isEditing, setIsEditing] = useState(false);
   const [tempTitle, setTempTitle] = useState<INote['title']>('');
@@ -14,11 +15,15 @@ export const Note: React.FC<Props> = ({ note }) => {
 
   const handleEdit = () => {
     setIsEditing(false);
-    editNote(tempTitle, tempContent, id);
+    editNote(tempTitle, tempContent, id).then(() => {
+      fetchNotes();
+    });
   };
 
   const handleDelete = () => {
-    // handle delete
+    deleteNote(id).then(() => {
+      fetchNotes();
+    });
   };
 
   return (

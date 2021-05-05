@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContext } from './auth/UserContext';
 import { Notes } from './components/Notes/Notes';
-import { AddNote } from './components/AddNote/AddNote';
 import { Login } from './components/Login/Login';
+import { Account } from './components/Account/Account';
 
 import './firebaseui-styling.global.css';
 
@@ -19,8 +19,8 @@ const App: React.FC<Props> = () => {
         {user && knownUser ? (
           <>
             <Switch>
-              <Route path="/add-note">
-                <AddNote />
+              <Route path="/account">
+                <Account />
               </Route>
               <Route path="/">
                 <Notes />

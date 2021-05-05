@@ -37,7 +37,7 @@ export const Nav: React.FC<Props> = () => {
       <div id="navbarBasicExample" className={burgerClasses}>
         <div className="navbar-start">
           <div className="navbar-item">
-            <Link to="/add-note">Add note</Link>
+            <Link to="/account">Account</Link>
           </div>
         </div>
         <div className="navbar-end">
