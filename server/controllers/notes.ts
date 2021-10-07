@@ -29,7 +29,7 @@ notesRouter.post('/edit', async (req: any, res: any) => {
       content: req.body.content,
       uid: auth.uid,
     };
-    Note.findByIdAndUpdate(noteId, noteObj)
+    Note.findByIdAndUpdate(noteId, noteObj, { useFindAndModify: false })
       .then((r) => {
         return res.status(201).send(r);
       })
