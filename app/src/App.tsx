@@ -11,6 +11,7 @@ interface Props {}
 
 const App: React.FC<Props> = () => {
   const { user } = useContext(UserContext);
+
   const knownUser = user.email || user.displayName;
 
   return (
