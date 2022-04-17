@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Note } from '../Note/Note';
+import Masonry from 'react-masonry-css';
 import { getNotes } from '../../services/noteServices';
 import type { INote } from '../../../types/notes';
 import { Nav } from '../Nav/Nav';
@@ -18,6 +19,12 @@ export const Notes: React.FC<Props> = () => {
     fetchNotes();
   }, []);
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 2,
+    700: 1,
+  };
+
   return (
     <section className="container">
       <div className="section">
@@ -26,13 +33,19 @@ export const Notes: React.FC<Props> = () => {
 
       <div className="section">
         <div className="container has-text-centered">
-          {notes.length > 0 ? (
-            notes!.map((note: INote, i) => (
-              <Note key={i} note={note} fetchNotes={fetchNotes} />
-            ))
-          ) : (
-            <p>You haven't added any notes yet!</p>
-          )}
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {notes.length > 0 ? (
+              notes!.map((note: INote, i) => (
+                <Note key={i} note={note} fetchNotes={fetchNotes} />
+              ))
+            ) : (
+              <p>You haven't added any notes yet!</p>
+            )}
+          </Masonry>
         </div>
       </div>
 

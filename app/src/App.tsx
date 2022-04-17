@@ -6,6 +6,7 @@ import { Login } from './components/Login/Login';
 import { Account } from './components/Account/Account';
 
 import './firebaseui-styling.global.css';
+import './masonry.css';
 
 interface Props {}
 
