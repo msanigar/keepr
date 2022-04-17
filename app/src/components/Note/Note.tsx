@@ -26,12 +26,8 @@ export const Note: React.FC<Props> = ({ note, fetchNotes }) => {
     });
   };
 
-  const card = {
-    gridAutoRows: `min-content`,
-  };
-
   return (
-    <div className="card" style={card}>
+    <div className="card">
       <div className="card-content">
         {!isEditing && (
           <>
