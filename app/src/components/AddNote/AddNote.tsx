@@ -30,21 +30,27 @@ export const AddNote: React.FC<Props> = ({ fetchNotes }) => {
     <div>
       <h2>Add Note</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          ref={textRef}
-          type="text"
-          placeholder="Title"
-          onChange={({ target }) => setTitle(target.value)}
-        />
-        <br />
-        <textarea
-          ref={contentRef}
-          placeholder="enter your note here"
-          onChange={({ target }) => setContent(target.value)}
-        />
-        <br />
-
-        <button type="submit">Save</button>
+        <div className="control">
+          <input
+            className="input"
+            ref={textRef}
+            type="text"
+            placeholder="Title"
+            onChange={({ target }) => setTitle(target.value)}
+          />
+          <br />
+          <textarea
+            className="input"
+            ref={contentRef}
+            rows={3}
+            placeholder="enter your note here"
+            onChange={({ target }) => setContent(target.value)}
+          />
+          <br />
+        </div>
+        <button className="button" type="submit">
+          Save
+        </button>
       </form>
     </div>
   );

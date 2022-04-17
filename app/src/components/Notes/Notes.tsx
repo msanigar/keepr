@@ -31,22 +31,20 @@ export const Notes: React.FC<Props> = () => {
         <Nav />
       </div>
 
-      <div className="section">
-        <div className="container has-text-centered">
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-          >
-            {notes.length > 0 ? (
-              notes!.map((note: INote, i) => (
-                <Note key={i} note={note} fetchNotes={fetchNotes} />
-              ))
-            ) : (
-              <p>You haven't added any notes yet!</p>
-            )}
-          </Masonry>
-        </div>
+      <div className="container has-text-centered">
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {notes.length > 0 ? (
+            notes!.map((note: INote, i) => (
+              <Note key={i} note={note} fetchNotes={fetchNotes} />
+            ))
+          ) : (
+            <p>You haven't added any notes yet!</p>
+          )}
+        </Masonry>
       </div>
 
       <div className="section">
