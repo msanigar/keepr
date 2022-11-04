@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { INote } from '../../types/notes';
 import firebase from 'firebase/app';
 
-const url = 'http://localhost:8081/api';
+const url = '/api';
 
 const createToken = async () => {
   const user = firebase.auth().currentUser;
