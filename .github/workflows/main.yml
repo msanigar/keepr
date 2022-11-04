@@ -22,10 +22,12 @@ jobs:
             NODE_ENV
             MONGO_DB_PASSWORD
             SNOWPACK_PUBLIC_FIREBASE_API_KEY
+            GOOGLE_CONFIG_BASE64
         env:
           NODE_ENV: production
           MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
           SNOWPACK_PUBLIC_FIREBASE_API_KEY: ${{ secrets.SNOWPACK_PUBLIC_FIREBASE_API_KEY }}
+          GOOGLE_CONFIG_BASE64: ${{ secrets.GOOGLE_CONFIG_BASE64 }}
       - name: "Login to heroku registry"
         run: heroku container:login
       - name: "Build and push to heroku registry"
