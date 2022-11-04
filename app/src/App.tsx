@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContext } from './auth/UserContext';
 import { Notes } from './components/Notes/Notes';
@@ -14,6 +14,11 @@ const App: React.FC<Props> = () => {
   const { user } = useContext(UserContext);
 
   const knownUser = user.email || user.displayName;
+
+  useEffect(() => {
+    console.log(process.env)
+  }, [])
+  
 
   return (
     <div data-test="keepr-container">
