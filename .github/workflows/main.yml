@@ -15,9 +15,6 @@ jobs:
           heroku_app_name: "mylesim-keepr"
           heroku_email: "myles.sanigar@gmail.com"
           usedocker: true
-          process_type: web
-          dockerfile_name: Dockerfile
-          dockerfile_directory: ./
           stack: "container"
           docker_build_args: |
             NODE_ENV
