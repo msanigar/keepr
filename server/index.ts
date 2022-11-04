@@ -7,6 +7,8 @@ const decodeIDToken = require('./authToken');
 
 require('dotenv').config();
 
+console.log('myles', process.env);
+
 const app = express();
 const PORT = 8081;
 

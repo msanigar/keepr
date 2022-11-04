@@ -15,11 +15,6 @@ const App: React.FC<Props> = () => {
 
   const knownUser = user.email || user.displayName;
 
-  useEffect(() => {
-    console.log(process.env)
-  }, [])
-  
-
   return (
     <div data-test="keepr-container">
       <Router>
