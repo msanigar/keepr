@@ -33,6 +33,7 @@ const firebaseeConfig = {
 
 const initFirebase = () => {
   if (!firebase.apps.length) {
+    console.log(import.meta.env)
     console.log(`0. Firebase initialized`);
     firebase.initializeApp(firebaseeConfig);
   }
