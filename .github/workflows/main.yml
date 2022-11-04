@@ -2,20 +2,21 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
+        uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "mylesim-keepr"
           heroku_email: "myles.sanigar@gmail.com"
-          usedocker: true
+          process_type: web
+          dockerfile_name: Dockerfile
+          dockerfile_directory: ./
           docker_build_args: |
             NODE_ENV
             MONGO_DB_PASSWORD

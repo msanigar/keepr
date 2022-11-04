@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: docker run -d -p 8081:8081 -p 8080:8080
