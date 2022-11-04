@@ -11,7 +11,6 @@ RUN cd server && npm install
 
 WORKDIR /usr/src/keepr/app
 
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE $PORT
 
 CMD ["npm", "run" ,"start"]
