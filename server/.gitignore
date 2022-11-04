@@ -1,4 +1,4 @@
-.env.dev
+.env
 node_modules
 serviceAccount.json
 package-lock.json
