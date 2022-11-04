@@ -15,7 +15,7 @@ app.use(decodeIDToken);
 app.use(express.json());
 app.use('/api', notesRouter);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
