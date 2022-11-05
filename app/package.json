@@ -32,7 +32,7 @@
     "env-cmd": "^10.1.0",
     "prettier": "^2.0.5",
     "react-masonry-css": "^1.0.16",
-    "snowpack": "^3.0.1",
+    "snowpack": "^3.8.8",
     "typescript": "^4.0.0"
   }
 }
