@@ -7,11 +7,9 @@ const decodeIDToken = require('./authToken');
 
 require('dotenv').config();
 
-type portType = any;
 
-const exPort = parseInt(process.env.PORT);
 const app = express();
-const PORT:portType = exPort ? exPort - 1 : 8081;
+const PORT = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(decodeIDToken);
